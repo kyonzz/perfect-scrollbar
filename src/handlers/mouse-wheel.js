@@ -9,13 +9,13 @@ export default function(i) {
   let shouldPrevent = false;
 
   function shouldPreventDefault(deltaX, deltaY) {
-    const roundedScrollTop = Math.floor(element.scrollTop);
+    const roundedScrollTop = Math.ceil(element.scrollTop);
     const isTop = element.scrollTop === 0;
     const isBottom =
-      roundedScrollTop + element.offsetHeight === element.scrollHeight;
+      roundedScrollTop + element.offsetHeight >= element.scrollHeight;
     const isLeft = element.scrollLeft === 0;
     const isRight =
-      element.scrollLeft + element.offsetWidth === element.scrollWidth;
+      Math.ceil(element.scrollLeft) + element.offsetWidth === element.scrollWidth;
 
     let hitsBound;
 
